@@ -1,49 +1,45 @@
 package pageobject;
 
 import driver.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends Page {
     private static final String TITLE = "Mail.Ru: почта, поиск в интернете, новости, игры";
-    private static final By USERNAME_INPUT = By.id("mailbox:login");
-    private static final By PASSWORD_INPUT = By.id("mailbox:password");
-    private static final By SUBMIT_BUTTON = By.xpath("//label[@id='mailbox:submit']/input");
     WebDriver driver = Driver.getDriver();
 
     public LoginPage() {
         super(TITLE);
+        PageFactory.initElements(driver, this);
     }
+
+    @FindBy(id = "mailbox:login")
+    private WebElement UsernameInput;
+
+    @FindBy(id = "mailbox:password")
+    private WebElement PasswordInput;
+
+    @FindBy(xpath = "//label[@id='mailbox:submit']/input")
+    private WebElement SubmitButton;
 
     public String getTitle() {
         return TITLE;
     }
 
-    private WebElement UsernameInput() {
-        return driver.findElement(USERNAME_INPUT);
-    }
-
     public LoginPage setUsername(String username) {
-        UsernameInput().sendKeys(username);
+        UsernameInput.sendKeys(username);
         return this;
-    }
-
-    private WebElement PasswordInput() {
-        return driver.findElement(PASSWORD_INPUT);
     }
 
     public LoginPage setPassword(String password) {
-        PasswordInput().sendKeys(password);
+        PasswordInput.sendKeys(password);
         return this;
     }
 
-    private WebElement SubmitButton() {
-        return driver.findElement(SUBMIT_BUTTON);
-    }
-
     public LoginPage clickSubmitButton() {
-        SubmitButton().click();
+        SubmitButton.click();
         return this;
     }
 

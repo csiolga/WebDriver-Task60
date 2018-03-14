@@ -1,29 +1,29 @@
 package pageobject;
 
 import driver.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends Page {
     private static String TITLE = "Входящие - Почта Mail.Ru";
-    private static final By LOG_OUT_LINK = By.id("PH_logoutLink");
     WebDriver driver = Driver.getDriver();
 
     public HomePage() {
         super(TITLE);
+        PageFactory.initElements(driver, this);
     }
+
+    @FindBy(id = "PH_logoutLink")
+    private WebElement LogoutLink;
 
     public String getTitle() {
         return TITLE;
     }
 
-    private WebElement LogoutLink() {
-        return driver.findElement(LOG_OUT_LINK);
-    }
-
     public HomePage clickLogoutLink() {
-        LogoutLink().click();
+        LogoutLink.click();
         return this;
     }
 
