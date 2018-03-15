@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends Page {
-    private static String TITLE = "Входящие - Почта Mail.Ru";
+    private static final String TITLE = "Входящие - Почта Mail.Ru";
     WebDriver driver = Driver.getDriver();
 
     public HomePage() {
