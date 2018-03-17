@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 abstract class Page {
     private final String TITLE;
-    WebDriver driver = Driver.getDriver();
+    WebDriver driver = Driver.getInstance().getDriver();
 
     Page(String title) {
         TITLE = title;
