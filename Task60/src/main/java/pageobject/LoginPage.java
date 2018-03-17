@@ -1,14 +1,11 @@
 package pageobject;
 
-import driver.Driver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends Page {
     private static final String TITLE = "Mail.Ru: почта, поиск в интернете, новости, игры";
-    WebDriver driver = Driver.getDriver();
 
     public LoginPage() {
         super(TITLE);

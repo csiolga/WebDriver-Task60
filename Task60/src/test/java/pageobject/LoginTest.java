@@ -12,20 +12,19 @@ import org.testng.annotations.Test;
 public class LoginTest {
     private static final String USERNAME = "seleniumtests10";
     private static final String PASSWORD = "060788avavav";
-    WebDriver driver;
+    private WebDriver driver;
     LoginPage loginPage;
     HomePage homePage;
 
     @BeforeMethod
     public void setup() {
-        Driver.open();
-        driver = Driver.getDriver();
+        driver = Driver.getInstance().open();
         loginPage = new LoginPage();
     }
 
     @AfterMethod
     public void teardown() {
-        Driver.close();
+        driver.close();
     }
 
     @Test
