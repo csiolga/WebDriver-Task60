@@ -13,37 +13,22 @@ public class LoginPage extends Page {
     }
 
     @FindBy(id = "mailbox:login")
-    private WebElement UsernameInput;
+    private WebElement usernameInput;
 
     @FindBy(id = "mailbox:password")
-    private WebElement PasswordInput;
+    private WebElement passwordInput;
 
     @FindBy(xpath = "//label[@id='mailbox:submit']/input")
-    private WebElement SubmitButton;
+    private WebElement loginButton;
 
     public String getTitle() {
         return TITLE;
     }
 
-    public LoginPage setUsername(String username) {
-        UsernameInput.sendKeys(username);
-        return this;
-    }
-
-    public LoginPage setPassword(String password) {
-        PasswordInput.sendKeys(password);
-        return this;
-    }
-
-    public LoginPage clickSubmitButton() {
-        SubmitButton.click();
-        return this;
-    }
-
     public HomePage login(String username, String password ) {
-        setUsername(username);
-        setPassword(password);
-        clickSubmitButton();
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        loginButton.click();
         return new HomePage();
     }
 }

@@ -13,19 +13,14 @@ public class HomePage extends Page {
     }
 
     @FindBy(id = "PH_logoutLink")
-    private WebElement LogoutLink;
+    private WebElement logoutLink;
 
     public String getTitle() {
         return TITLE;
     }
 
-    public HomePage clickLogoutLink() {
-        LogoutLink.click();
-        return this;
-    }
-
     public LoginPage logout() {
-        clickLogoutLink();
+        logoutLink.click();
         return new LoginPage();
     }
 
