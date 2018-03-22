@@ -1,4 +1,4 @@
-package pageobject;
+package classicpageobject.pageobject;
 
 import driver.Driver;
 import org.openqa.selenium.WebDriver;
