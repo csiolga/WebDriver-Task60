@@ -1,16 +1,12 @@
-package pageobject;
+package pagefactory.pageobject;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.Wait;
 
 public class LoginPage extends Page {
     private static final String TITLE = "Mail.Ru: почта, поиск в интернете, новости, игры";
-
-    public LoginPage() {
-        super(TITLE);
-        PageFactory.initElements(driver, this);
-    }
 
     @FindBy(id = "mailbox:login")
     private WebElement usernameInput;
@@ -21,6 +17,11 @@ public class LoginPage extends Page {
     @FindBy(xpath = "//label[@id='mailbox:submit']/input")
     private WebElement loginButton;
 
+    public LoginPage() {
+        super(TITLE);
+        PageFactory.initElements(driver, this);
+    }
+
     public String getTitle() {
         return TITLE;
     }
@@ -29,6 +30,8 @@ public class LoginPage extends Page {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginButton.click();
+        Wait.waitForTitleChange(TITLE);
+
         return new HomePage();
     }
 }

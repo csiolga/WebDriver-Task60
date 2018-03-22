@@ -1,4 +1,4 @@
-package pageobject;
+package pagefactory.pageobject;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage extends Page {
     private static final String TITLE = "Входящие - Почта Mail.Ru";
 
+    @FindBy(id = "PH_logoutLink")
+    private WebElement logoutLink;
+
     public HomePage() {
         super(TITLE);
         PageFactory.initElements(driver, this);
     }
-
-    @FindBy(id = "PH_logoutLink")
-    private WebElement logoutLink;
 
     public String getTitle() {
         return TITLE;

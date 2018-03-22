@@ -1,4 +1,4 @@
-package pageobject;
+package pagefactory.pageobject;
 
 import driver.Driver;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +12,8 @@ public class LoginTest {
     private static final String USERNAME = "seleniumtests10";
     private static final String PASSWORD = "060788avavav";
     private WebDriver driver;
-    LoginPage loginPage;
-    HomePage homePage;
+    private LoginPage loginPage;
+    private HomePage homePage;
 
     @BeforeMethod
     public void setup() {
@@ -29,7 +29,6 @@ public class LoginTest {
     @Test
     public void login() {
         homePage = loginPage.login(USERNAME,PASSWORD);
-        Wait.waitForTitleChange(loginPage.getTitle());
 
         Assert.assertTrue(homePage.isDisplayed(),
                 "Expected title is '" + homePage.getTitle() + "' but actual title is '" + driver.getTitle() + "'.");
