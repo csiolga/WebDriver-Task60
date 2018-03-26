@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class HomePage extends Page {
     private static final String TITLE = "Входящие - Почта Mail.Ru";
-    private static final By LOGOUT_LINK = By.id("PH_logoutLink");
+    private static final By logoutLink = By.id("PH_logoutLink");
 
     public HomePage() {
         super(TITLE);
@@ -15,7 +15,7 @@ public class HomePage extends Page {
     }
 
     public LoginPage logout() {
-        driver.findElement(LOGOUT_LINK).click();
+        driver.findElement(logoutLink).click();
         return new LoginPage();
     }
 
